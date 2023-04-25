@@ -8,22 +8,20 @@ export function QuestionScreen ({ navigation }) {
     const [selectedAnswer, setSelectedAnswer] = useState('');
   
     // question array of three different types 
-    let questions = [    
-        {   id: '1',
+    const questions = [    
+        { 
             type: "multiple-choice",
             prompt: 'This is a multiple choice question',     
             choices: ['A', 'B', 'C', 'D'],
             correct: 0,
       },
       {
-            id: '2',
             type: "multiple-answer",
             prompt: 'This is a multiple answer question',     
             choices: ['A', 'B', 'C', 'D'],
             correct: [0, 2]
       },
       {
-            id: '3',
             type: "true-false",
             prompt: 'This is a true or false question',     
             choices: ['true', 'false'],
