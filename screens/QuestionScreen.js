@@ -2,13 +2,8 @@ import React, { useState } from 'react';
 import { View, Text, Button } from 'react-native';
 import { ButtonGroup } from 'react-native-elements';
 
-export function QuestionScreen ({ navigation }) {
-    const [question, setQuestion] = useState(0);
-    const [score, setScore] = useState(0);
-    const [selectedAnswer, setSelectedAnswer] = useState('');
-  
     // question array of three different types 
-    const questions = [    
+    const questionData = [    
         { 
             type: "multiple-choice",
             prompt: 'This is a multiple choice question',     
@@ -28,7 +23,11 @@ export function QuestionScreen ({ navigation }) {
             correct: 1
       }
     ];
-  
+
+    export function QuestionScreen ({ navigation }) {
+      const [question, setQuestion] = useState(0);
+      const [score, setScore] = useState(0);
+      const [selectedAnswer, setSelectedAnswer] = useState('');
     const currentQuestion = questions[question];
 
     const handleAnswerSelected = (index) => {
