@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { View, Text, Button } from 'react-native';
 import { ButtonGroup } from 'react-native-elements';
 
-
 // question array of three different types 
 const questions = [    
   {
