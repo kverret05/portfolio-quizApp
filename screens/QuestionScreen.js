@@ -42,8 +42,8 @@ export function QuestionScreen ({ navigation }) {
     if (question < questionData.length - 1) {
       setQuestion(question + 1);
     } else {
-      navigation.navigate('Summary', { score });
       setScore(score + 1);
+      navigation.navigate('Summary', { score });
     }
   };
 
