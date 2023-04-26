@@ -2,8 +2,8 @@ import React from 'react';
 import { View, Text } from 'react-native';
 
 export function SummaryScreen({ route }) {
-  const { userAnswers, questions } = route.params;
-  const correctAnswers = questions.map(question => question.correctAnswer);
+  const { userAnswers, questionData } = route.params;
+  const correctAnswers = questionData.map(question => question.correctAnswer);
 
   return <Summary userAnswers={userAnswers} correctAnswers={correctAnswers} questions={questions} />;
 }
