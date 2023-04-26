@@ -37,6 +37,9 @@ export function QuestionScreen ({ navigation, route }) {
     const newSelectedAnswer = [...selectedAnswer];
     newSelectedAnswer[question] = index;
     setSelectedAnswer(newSelectedAnswer);
+    if (index === currentQuestion.correct) {
+      setScore(score + 1);
+    }
   };
 
   const handleNextQuestion = () => {
