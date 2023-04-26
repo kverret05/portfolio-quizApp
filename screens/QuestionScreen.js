@@ -42,10 +42,10 @@ export function QuestionScreen ({ navigation, route }) {
     if (question < questionData.length - 1) {
       setQuestion(question + 1);
     } else {
-      setScore(score + 1);
-      navigation.navigate('Summary', { score });
+      navigation.navigate('Summary', { question, selectedAnswer, score: score + 1 });
     }
   };
+  
 
   const handleMultipleAnswerSelected = (indexes) => {
     const newSelectedAnswer = [...selectedAnswer];

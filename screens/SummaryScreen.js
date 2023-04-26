@@ -5,10 +5,6 @@ export function SummaryScreen({ route }) {
   const { userAnswers, questionData } = route.params;
   const correctAnswers = questionData.map(question => question.correctAnswer);
 
-  return <Summary userAnswers={userAnswers} correctAnswers={correctAnswers} questions={questionData} />;
-}
-
-export function Summary({ userAnswers, correctAnswers }) {
   const totalScore = userAnswers.reduce((score, answer, index) => {
     if (answer === correctAnswers[index]) {
       return score + 1;
