@@ -10,8 +10,8 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer style={styles.container}>
-      <Stack.Navigator>
-        <Stack.Screen name="Quiz" component={QuestionScreen} />
+      <Stack.Navigator initialRouteName='Question'>
+        <Stack.Screen name="Question" component={QuestionScreen}  initialParams={{ currentQuestionIndex: 0 }} />
         <Stack.Screen name="Summary" component={SummaryScreen} />
       </Stack.Navigator>
     </NavigationContainer>

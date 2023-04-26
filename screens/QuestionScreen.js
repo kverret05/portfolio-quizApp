@@ -25,12 +25,12 @@ const questionData = [
 ];
 
 
-export function QuestionScreen ({ navigation }) {
-  const [question, setQuestion] = useState(0);
+export function QuestionScreen ({ navigation, route }) {
+  const [question, setQuestion] = useState(route.params.currentQuestionIndex);
   const [score, setScore] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState([]);
   const currentQuestion = questionData[question];
-  const { type, choices } = currentQuestion;
+  const { type, prompt, choices } = currentQuestion;
 
   const handleAnswerSelected = (index) => {
     const newSelectedAnswer = [...selectedAnswer];
@@ -56,7 +56,7 @@ export function QuestionScreen ({ navigation }) {
   return (
     <View>
       <Text>Question {question + 1}</Text>
-      <Text>{currentQuestion.prompt}</Text>
+      <Text>{prompt}</Text>
       {type === "multiple-answer" ? (
         <ButtonGroup
           testID="choices"
