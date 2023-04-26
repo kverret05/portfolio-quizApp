@@ -6,22 +6,22 @@ import { ButtonGroup } from 'react-native-elements';
 const questionData = [
   {
     type: "multiple-choice",
-    prompt: 'This is a multiple choice question',
-    choices: ['A', 'B', 'C', 'D'],
-    correct: 0,
+    prompt: 'What is the fluttering sound made by a cat?',
+    choices: ['Roar', 'Oink', 'Purr', 'Buzzz'],
+    correct: 2,
   },
   {
     type: "multiple-answer",
-    prompt: 'This is a multiple answer question',
-    choices: ['A', 'B', 'C', 'D'],
-    correct: [0, 2]
+    prompt: 'What cat breed is my favorite...?',
+    choices: ['Siamese Cat', 'Maine Coon', 'American Shorthair', 'Scottish Fold'],
+    correct: [2, 3],
   },
   {
     type: "true-false",
-    prompt: 'This is a true or false question',
+    prompt: 'Cats are the best pets',
     choices: ['true', 'false'],
-    correct: 1
-  }
+    correct: 0,
+  },
 ];
 
 
