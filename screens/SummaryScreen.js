@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 
 export function SummaryScreen({ route }) {
   const { userAnswers, questionData } = route.params;
-  const correctAnswers = questionData.map(question => question.correctAnswer);
+  const correctAnswers = questionData.map(question => question.correct);
 
   const totalScore = userAnswers.reduce((score, answer, index) => {
     if (answer === correctAnswers[index]) {

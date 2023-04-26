@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, Button } from 'react-native';
 import { ButtonGroup } from 'react-native-elements';
 
-// question array of three different types 
+// Question array of three different types 
 const questionData = [
   {
     type: "multiple-choice",
@@ -32,6 +32,7 @@ export function QuestionScreen ({ navigation, route }) {
   const currentQuestion = questionData[question];
   const { type, prompt, choices } = currentQuestion;
 
+
   const handleAnswerSelected = (index) => {
     const newSelectedAnswer = [...selectedAnswer];
     newSelectedAnswer[question] = index;
@@ -42,7 +43,7 @@ export function QuestionScreen ({ navigation, route }) {
     if (question < questionData.length - 1) {
       setQuestion(question + 1);
     } else {
-      navigation.navigate('Summary', { question, selectedAnswer, score: score + 1 });
+      navigation.navigate('Summary', { score, userAnswers: selectedAnswer, questionData });
     }
   };
   

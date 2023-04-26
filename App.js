@@ -1,8 +1,8 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { StyleSheet, Text, View } from 'react-native';
-import {QuestionScreen} from './screens/QuestionScreen';
-import {SummaryScreen} from './screens/SummaryScreen';
+import {QuestionScreen} from './screens/QuestionScreen.js';
+import {SummaryScreen} from './screens/SummaryScreen.js';
 import * as React from 'react';
 
 const Stack = createStackNavigator();
