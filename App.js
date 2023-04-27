@@ -17,7 +17,7 @@ const data = [
     prompt: 'How many signs are there in the zodiac?',
     choices: ['6', '12', '18', '24'],
     correct: 1,
-    hint: "Think of how many days are in a year",
+    hint: "Think of how many months are in a year",
   },
   {
     type: "multiple-answer",
