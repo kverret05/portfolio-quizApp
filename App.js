@@ -3,8 +3,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { StyleSheet} from 'react-native';
 import * as React from 'react';
 
-import Question, { data } from './screens/Question';
-import Summary from './screens/Summary';
+import Question, { data } from './components/Question';
+import Summary from './components/Summary';
 
 const Stack = createStackNavigator();
 
