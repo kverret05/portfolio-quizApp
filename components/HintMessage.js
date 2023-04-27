@@ -13,14 +13,14 @@ function HintMessage(props) {
               <Text>{props.hintText}</Text>
 
               <TouchableHighlight onPress={() => setHintRequested(false)}>
-                <Text>Hide Hint? </Text>
+                <Text>HIDE HINT </Text>
               </TouchableHighlight>
             </View>
           </View>
         </Modal>
       ) : (
         <TouchableHighlight onPress={() => setHintRequested(true)}>
-          <Text>Show Hint?</Text>
+          <Text>SHOW HINT</Text>
         </TouchableHighlight>
       )}
     </View>
