@@ -99,7 +99,7 @@ function Summary({ route }) {
       <Text> Score: {totalScore} </Text>
       ( confirmRestart ? )
       <RestartQuiz
-          handleRestartConfirmation={handleRestartConfirmation}
+          handleConfirmRestart={handleConfirmRestart}
         />
       ) : (
         <Button
