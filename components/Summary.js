@@ -1,8 +1,9 @@
 import React from 'react';
 import { View, Text, FlatList } from 'react-native';
-import { CheckBox } from 'react-native-elements';
+import { Button, CheckBox } from 'react-native-elements';
 import { styles } from '../App';
 
+import RestartQuiz from './RestartQuiz';
 
 function Summary({ route }) {
   let calculateCorrect = (userSelected, correct, type) => {
@@ -96,6 +97,12 @@ function Summary({ route }) {
         }}
       />
       <Text> Score: {totalScore} </Text>
+      ( confirmRestart ? )
+      <RestartQuiz
+      handleConfirmRestart = {confirmRestart}>
+      </RestartQuiz>
+      <Button> title="Restart Quiz"
+          onPress={handleRestart} </Button>
     </View>
   );
 }
