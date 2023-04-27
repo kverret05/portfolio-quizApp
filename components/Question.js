@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { View, Text, Button } from 'react-native';
 import { ButtonGroup } from 'react-native-elements';
 import { styles } from '../App';
-import HintMessage from './components/HintMessage';
+
+import HintMessage from './HintMessage';
 
 export const data = [
   {
@@ -65,7 +66,7 @@ function Question({ navigation, route }) {
   return (
     <View style={styles.container}>
       <Text>{prompt}</Text>
-      <HintMessage hintText={props.hintText} />
+      <HintMessage hintText={route.params.data[questionNumber].hint} />
       {type !== "multiple-answer" ? (
         <ButtonGroup
           textID="choices"
