@@ -74,16 +74,23 @@ function Question({ navigation, route}) {
         />
       ) : (
         <ButtonGroup
-          testID="choices"
-          buttons={choices}
-          vertical
-          selectMultiple
-          selectedIndex={selectedIndexes}
-          onPress={(value) => {
-            setSelectedIndexes(value);
-          }}
-          containerStyle={{margin:20, width: "70%"}}
-        />
+  testID="choices"
+  buttons={choices}
+  vertical
+  selectMultiple
+  selectedIndexes={selectedIndexes}
+  onPress={(value) => {
+    if (selectedIndexes.includes(value)) {
+      // If value is already selected, remove it from selectedIndexes
+      setSelectedIndexes(selectedIndexes.filter((i) => i !== value));
+    } else {
+      // If value is not selected, add it to selectedIndexes
+      setSelectedIndexes(selectedIndexes.concat(value));
+    }
+  }}
+  containerStyle={{margin:20, width: "70%"}}
+/>
+
       )}
       <Button
         testID="next-question"
