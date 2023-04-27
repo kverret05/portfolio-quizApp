@@ -4,7 +4,7 @@ import { ButtonGroup } from 'react-native-elements';
 import { styles } from '../App';
 
 import HintMessage from './HintMessage';
-import data from './App.js';
+import data from './App.js/
 
 function Question({ navigation, route }) {
   console.log(route.params)
