@@ -31,7 +31,7 @@ export default function App() {
          initialParams={{
           questionNumber: data.length - 1,
           data: data,
-          userChoices: [1, [0,2], 1],
+          userChoices: [1, [0,3], 0],
          }}
          options= {{ headerShown: false}}
          component={Summary} />
