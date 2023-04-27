@@ -99,10 +99,13 @@ function Summary({ route }) {
       <Text> Score: {totalScore} </Text>
       ( confirmRestart ? )
       <RestartQuiz
-      handleConfirmRestart = {confirmRestart}>
-      </RestartQuiz>
-      <Button> title="Restart Quiz"
-          onPress={handleRestart} </Button>
+          handleRestartConfirmation={handleRestartConfirmation}
+        />
+      ) : (
+        <Button
+          title="Restart Quiz"
+          onPress={handleRestart}
+          />
     </View>
   );
 }

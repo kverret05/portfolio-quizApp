@@ -1,4 +1,5 @@
-import React, {useState} from react;
+
+import { useState } from "react";
 import { Modal, View } from "react-native";
 import { Button, Text } from "react-native-elements";
 import { styles } from "../App";
