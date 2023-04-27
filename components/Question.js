@@ -65,6 +65,7 @@ function Question({ navigation, route }) {
   return (
     <View style={styles.container}>
       <Text>{prompt}</Text>
+      <HintMessage hintText={props.hintText} />
       {type !== "multiple-answer" ? (
         <ButtonGroup
           textID="choices"
