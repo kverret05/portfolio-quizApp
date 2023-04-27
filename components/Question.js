@@ -24,7 +24,7 @@ export const data = [
   }
 ];
 
-function Question({ navigation, route}) {
+function Question({ navigation, route }) {
   console.log(route.params)
   const { questionNumber, userChoices, data } = route.params;
   let { choices, prompt, type } = data[questionNumber]
@@ -38,22 +38,24 @@ function Question({ navigation, route}) {
     } else {
       userChoices.push(selectedIndexes)
     }
-  
+
     if (nextQuestion < data.length) {
       console.log("Navigating to next question")
-      console.log({questionNumber: nextQuestion,
-        data, userChoices})
+      console.log({
+        questionNumber: nextQuestion,
+        data, userChoices
+      })
       navigation.navigate("Question", {
         questionNumber: nextQuestion,
-        data, 
+        data,
         userChoices
       })
     } else {
       navigation.navigate("Summary", {
-        data, 
+        data,
         userChoices
       })
-    } 
+    }
   }
 
   return (
@@ -70,24 +72,24 @@ function Question({ navigation, route}) {
             console.log(selectedIndex);
             setSelectedIndex(value);
           }}
-          containerStyle={{margin:20, width: "70%"}}
+          containerStyle={{ margin: 20, width: "70%" }}
         />
       ) : (
         <ButtonGroup
-  testID="choices"
-  buttons={choices}
-  vertical
-  selectMultiple
-  selectedIndexes={selectedIndexes}
-  onPress={(value) => {
-    if (selectedIndexes.includes(value)) {
-      setSelectedIndexes(selectedIndexes.filter((i) => i !== value));
-    } else {
-      setSelectedIndexes(selectedIndexes.concat(value));
-    }
-  }}
-  containerStyle={{margin:20, width: "70%"}}
-/>
+          testID="choices"
+          buttons={choices}
+          vertical
+          selectMultiple
+          selectedIndexes={selectedIndexes}
+          onPress={(value) => {
+            if (selectedIndexes.includes(value)) {
+              setSelectedIndexes(selectedIndexes.filter((i) => i !== value));
+            } else {
+              setSelectedIndexes(selectedIndexes.concat(value));
+            }
+          }}
+          containerStyle={{ margin: 20, width: "70%" }}
+        />
 
       )}
       <Button
