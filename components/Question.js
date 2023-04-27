@@ -6,21 +6,21 @@ import { styles } from '../App';
 export const data = [
   {
     type: "multiple-choice",
-    prompt: 'This is a multiple choice question',
-    choices: ['A', 'B', 'C', 'D'],
-    correct: 0,
+    prompt: 'How many signs are there in the zodiac?',
+    choices: ['6', '12', '18', '24'],
+    correct: 1,
   },
   {
     type: "multiple-answer",
-    prompt: 'This is a multiple answer question',
-    choices: ['A', 'B', 'C', 'D'],
-    correct: [0, 2]
+    prompt: 'What zodiac signs are considered "fixed signs"?',
+    choices: ['Taurus', 'Gemini', 'Libra', 'Aquarius'],
+    correct: [0, 3]
   },
   {
     type: "true-false",
-    prompt: 'This is a true or false question',
+    prompt: 'If you were born on September 16, you are a Virgo',
     choices: ['true', 'false'],
-    correct: 1
+    correct: 0
   }
 ];
 
