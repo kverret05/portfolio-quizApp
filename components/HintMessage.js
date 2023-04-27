@@ -4,7 +4,7 @@ import { Modal, Text, TouchableHighlight, View } from "react-native";
 function HintMessage(props) {
   const [hintRequested, setHintRequested] = useState(false);
 
-  function handleHintRequest() {
+  function HintRequest() {
     setHintRequested(true);
   }
 
@@ -17,14 +17,14 @@ function HintMessage(props) {
               <Text>{props.hintText}</Text>
 
               <TouchableHighlight onPress={() => setHintRequested(false)}>
-                <Text>Hide Hint</Text>
+                <Text>Hide Hint? </Text>
               </TouchableHighlight>
             </View>
           </View>
         </Modal>
       ) : (
-        <TouchableHighlight onPress={handleHintRequest}>
-          <Text>Show Hint</Text>
+        <TouchableHighlight onPress={HintRequest}>
+          <Text>Show Hint?</Text>
         </TouchableHighlight>
       )}
     </View>
