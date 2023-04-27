@@ -1,28 +1,66 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { StyleSheet, Text, View } from 'react-native';
-import {QuestionScreen} from './screens/QuestionScreen.js';
-import {SummaryScreen} from './screens/SummaryScreen.js';
+import { StyleSheet} from 'react-native';
 import * as React from 'react';
 
+import Question, { data } from './screens/Question';
+import Summary from './screens/Summary';
+
 const Stack = createStackNavigator();
+
+// This modified from code in Class Screenshots
 
 export default function App() {
   return (
     <NavigationContainer style={styles.container}>
-      <Stack.Navigator initialRouteName='Question'>
-        <Stack.Screen name="Question" component={QuestionScreen}  initialParams={{ currentQuestionIndex: 0 }} />
-        <Stack.Screen name="Summary" component={SummaryScreen} />
+      <Stack.Navigator initialRouteName="Question">
+        <Stack.Screen 
+        initialParams={{
+          questionNumber: 0,
+          data: data,
+          userChoices: [],
+        }}
+          name="Question" 
+          options= {{ headerShown: false}}
+          >
+            {(props) => <Question {...props}/>}
+        </Stack.Screen>
+        <Stack.Screen
+         name="Summary" 
+         initialParams={{
+          questionNumber: data.length - 1,
+          data: data,
+          userChoices: [1, [0,2], 1],
+         }}
+         options= {{ headerShown: false}}
+         component={Summary} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
+  horizontal: {
+    flexDirection: "row",
+    justifyContent: "center",
+    padding: 10,
+  },
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: 'center',
+
+  },
+  button: {
+    alignItems: "center",
+    backgroundColor: "#DDDDDD",
+    padding: 10,
+  }
 });
