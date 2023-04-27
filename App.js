@@ -3,13 +3,37 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { StyleSheet} from 'react-native';
 import * as React from 'react';
 
-import Question, { data } from './components/Question';
+import Question from './components/Question';
 import Summary from './components/Summary';
 
 
 const Stack = createStackNavigator();
 
 // This modified from code in Class Screenshots
+
+const data = [
+  {
+    type: "multiple-choice",
+    prompt: 'How many signs are there in the zodiac?',
+    choices: ['6', '12', '18', '24'],
+    correct: 1,
+    hint: "Think of how many days are in a year",
+  },
+  {
+    type: "multiple-answer",
+    prompt: 'What zodiac signs are considered "fixed signs"?',
+    choices: ['Taurus', 'Gemini', 'Libra', 'Aquarius'],
+    correct: [0, 3],
+    hint: "Fixed signs fall in the middle of a season"
+  },
+  {
+    type: "true-false",
+    prompt: 'If you were born on September 16, you are a Virgo',
+    choices: ['true', 'false'],
+    correct: 0,
+    hint: "Libras and Virgos are born in September, just depending on the day of the month"
+  }
+];
 
 export default function App() {
   return (
