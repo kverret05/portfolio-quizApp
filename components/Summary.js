@@ -8,10 +8,9 @@ function Summary({ route }) {
   let calculateCorrect = (userSelected, correct, type) => {
     let userCorrect = false;
     if (type === "multiple-answer") {
-      userCorrect = userSelected.sort().toString()
-      === correct.sort().toString()
+      userCorrect = userSelected.sort().toString() === correct.sort().toString();
     } else {
-      userCorrect = userSelected == correct;
+      userCorrect = userSelected === correct;
     }
     return userCorrect;
   };
@@ -19,22 +18,21 @@ function Summary({ route }) {
   let calculateCorrectSet = (userSelected, correct, type) => {
     let userCorrect = false;
     if (type === "multiple-answer") {
-      userCorrect =
-        correct.every((item) => userSelected.includes(item)) &&
+      userCorrect = correct.every((item) => userSelected.includes(item)) &&
         userSelected.every((item) => correct.includes(item));
     } else {
-      userCorrect = userSelected == correct;
+      userCorrect = userSelected === correct;
     }
     return userCorrect;
   };
-  
+
   let totalScore = 0;
   for (let i = 0; i < route.params.data.length; i++) {
     if (
       calculateCorrect(
         route.params.userChoices[i],
         route.params.data[i].correct,
-        route.params.data[i].type 
+        route.params.data[i].type
       )
     ) {
       totalScore++
@@ -57,7 +55,7 @@ function Summary({ route }) {
               {choices.map((value, choiceIndex) => {
                 let incorrect = false
                 let userDidSelect = false
-  
+
                 if (type === "multiple-answer") {
                   userDidSelect = userSelected.includes(choiceIndex);
                   incorrect =
@@ -65,9 +63,9 @@ function Summary({ route }) {
                     !correct.includes(choiceIndex) &&
                     userSelected.includes(choiceIndex);
                 } else {
-                  incorrect = userSelected !== choiceIndex;
-                  incorrect = userSelected 
-                  && userSelected !== correct
+                  incorrect = userSelected !== correct;
+                  incorrect = userSelected
+                    && userSelected !== correct
                 }
                 return (
                   <CheckBox
