@@ -6,6 +6,7 @@ import * as React from 'react';
 import Question, { data } from './components/Question';
 import Summary from './components/Summary';
 
+
 const Stack = createStackNavigator();
 
 // This modified from code in Class Screenshots
