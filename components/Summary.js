@@ -3,8 +3,6 @@ import { View, Text, FlatList } from 'react-native';
 import { Button, CheckBox } from 'react-native-elements';
 import { styles } from '../App';
 
-import RestartQuiz from './RestartQuiz';
-
 function Summary({ route }) {
   let calculateCorrect = (userSelected, correct, type) => {
     let userCorrect = false;
@@ -97,15 +95,6 @@ function Summary({ route }) {
         }}
       />
       <Text> Score: {totalScore} </Text>
-      ( confirmRestart ? )
-      <RestartQuiz
-          handleConfirmRestart={handleConfirmRestart}
-        />
-      ) : (
-        <Button
-          title="Restart Quiz"
-          onPress={handleRestart}
-          />
     </View>
   );
 }
