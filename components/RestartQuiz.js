@@ -1,14 +1,13 @@
-
 import { useState } from "react";
 import { Modal, View } from "react-native";
 import { Button, Text } from "react-native-elements";
 import { styles } from "../App";
 
 function RestartQuiz(setQuizState) {
-    const [confirmRestart, setConfirmRestart] = useState[false];
+    const [confirmRestart, setConfirmRestart] = useState(false);
 
     let handleRestart = () => {
-        setConfirmRestart = true;
+        setConfirmRestart(true);
     }
 
     let handleConfirmRestart = (confirmed) => {
@@ -18,28 +17,30 @@ function RestartQuiz(setQuizState) {
                 userChoices,
                 showSummary: false
             })
-            setConfirmRestart = false;
-        }
-
-            return (
-                <View style={styles.container}>
-                    <Modal>
-                        visible={confirmRestart}
-                        animationType="slide"
-                        transparent={true}
-                        onRequestClose={() => handleConfirmRestart(false)}
-                        <View style={{ flex: 1, justifyContent: center, alignItems: center }}>
-                            <View style={{ backgroundColor: 'white', padding: 20 }}>
-                                <Text style={{ marginBottom: 10 }}>Are you sure you want to restart the quiz?</Text>
-                                <Button title="Yes" onPress={() => handleConfirmRestart(true)} />
-                                <Button title="No" onPress={() => handleConfirmRestart(false)} />
-                            </View>
-                        </View>
-                    </Modal>
-                    <Button title="Restart Quiz" onPress={handleRestart} />
-                </View>
-            )
+            setConfirmRestart(false);
+        } else {
+            setConfirmRestart(false);
         }
     }
+
+    return (
+        <View style={styles.container}>
+            <Modal
+                visible={confirmRestart}
+                animationType="slide"
+                transparent={true}
+                onRequestClose={() => handleConfirmRestart(false)}>
+                <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                    <View style={{ backgroundColor: 'white', padding: 20 }}>
+                        <Text style={{ marginBottom: 10 }}>Are you sure you want to restart the quiz?</Text>
+                        <Button title="Yes" onPress={() => handleConfirmRestart(true)} />
+                        <Button title="No" onPress={() => handleConfirmRestart(false)} />
+                    </View>
+                </View>
+            </Modal>
+            <Button title="Restart Quiz" onPress={handleRestart} />
+        </View>
+    );
+}
 
 export default RestartQuiz;
