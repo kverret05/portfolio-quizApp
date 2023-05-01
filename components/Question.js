@@ -3,14 +3,15 @@ import { View, Text, Button } from 'react-native';
 import { ButtonGroup } from 'react-native-elements';
 import { styles } from '../App';
 import { questionData } from '../App';
+import HintMessage from './HintMessage';
 
 function Question({ navigation, route }) {
   console.log(route.params)
   const { questionNumber, userChoices, questionData } = route.params;
-  let { choices, prompt, type } = questionData[questionNumber]
-  let initialSelection = 0
+  let { choices, prompt, type, hint } = questionData[questionNumber]
   let [selectedIndex, setSelectedIndex] = useState(0)
   let [selectedIndexes, setSelectedIndexes] = useState([])
+  let [showHint, setShowHint] = useState(false)
   let nextQuestion = () => {
     let nextQuestion = questionNumber + 1
     console.log(selectedIndex)
@@ -42,6 +43,7 @@ function Question({ navigation, route }) {
   return (
     <View style={styles.container}>
       <Text>{prompt}</Text>
+      {showHint ? <HintMessage hint={hint} /> : null}
       {type !== "multiple-answer" ? (
         <ButtonGroup
           testID="choices"
@@ -73,6 +75,11 @@ function Question({ navigation, route }) {
         />
 
       )}
+      <Button
+        testID="show-hint"
+        onPress={() => setShowHint(!showHint)}
+        title="Hint"
+      />
         <Button
         testID="next-question"
         onPress={nextQuestion}
