@@ -16,22 +16,19 @@ export const questionData = [
     type: "multiple-choice",
     prompt: 'How many signs are there in the zodiac?',
     choices: ['6', '12', '18', '24'],
-    correct: 1,
-    hint: "Think of how many months are in a year",
+    correct: 1
   },
   {
     type: "multiple-answer",
     prompt: 'What zodiac signs are considered "fixed signs"?',
     choices: ['Taurus', 'Gemini', 'Libra', 'Aquarius'],
-    correct: [0, 3],
-    hint: "Fixed signs fall in the middle of a season"
+    correct: [0, 3]
   },
   {
     type: "true-false",
     prompt: 'If you were born on September 16, you are a Virgo',
     choices: ['true', 'false'],
-    correct: 0,
-    hint: "Libras and Virgos are born in September, just depending on the day of the month"
+    correct: 0
   }
 ];
 
