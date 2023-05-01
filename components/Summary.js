@@ -98,7 +98,7 @@ function Summary({ route }) {
         }}
       />
       <View>
-        <Text> Score: {totalScore} </Text>
+        <Text> Score: {totalScore} out of 3</Text>
       </View>
     </View>
   );
