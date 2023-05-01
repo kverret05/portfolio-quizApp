@@ -3,7 +3,7 @@ import { Modal, View } from "react-native";
 import { Button, Text } from "react-native-elements";
 import { styles } from "../App";
 
-function RestartQuiz({ setQuizState }) {
+function RestartQuiz({ navigation, setQuizState }) {
   const [confirmRestart, setConfirmRestart] = useState(false);
 
   let handleRestart = () => {
@@ -18,6 +18,7 @@ function RestartQuiz({ setQuizState }) {
         showSummary: false,
       });
       setConfirmRestart(false);
+      navigation.navigate("Question");
     } else {
       setConfirmRestart(false);
     }

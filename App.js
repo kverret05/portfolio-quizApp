@@ -1,6 +1,6 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 import * as React from 'react';
 
 import Question from './components/Question';
@@ -36,26 +36,26 @@ export default function App() {
   return (
     <NavigationContainer style={styles.container}>
       <Stack.Navigator initialRouteName="Question">
-        <Stack.Screen 
-        initialParams={{
-          questionNumber: 0,
-          questionData: questionData,
-          userChoices: [],
-        }}
-          name="Question" 
-          options= {{ headerShown: false}}
-          >
-            {(props) => <Question {...props}/>}
+        <Stack.Screen
+          initialParams={{
+            questionNumber: 0,
+            questionData: questionData,
+            userChoices: [],
+          }}
+          name="Question"
+          options={{ headerShown: false }}
+        >
+          {(props) => <Question {...props} />}
         </Stack.Screen>
         <Stack.Screen
-         name="Summary" 
-         initialParams={{
-          questionNumber: questionData.length - 1,
-          questionData: questionData,
-          userChoices: [1, [0,3], 0],
-         }}
-         options= {{ headerShown: false}}
-         component={Summary} />
+          name="Summary"
+          initialParams={{
+            questionNumber: questionData.length - 1,
+            questionData: questionData,
+            userChoices: [1, [0, 3], 0],
+          }}
+          options={{headerShown: false }}
+          component={Summary} />
       </Stack.Navigator>
     </NavigationContainer>
   );
