@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, FlatList } from 'react-native';
-import { Button, CheckBox } from 'react-native-elements';
+import { CheckBox } from 'react-native-elements';
 import { styles } from '../App';
 
 function Summary({ route }) {
@@ -26,22 +26,21 @@ function Summary({ route }) {
   };
 
   let totalScore = 0;
-  for (let i = 0; i < route.params.data.length; i++) {
-    if (
-      calculateCorrect(
-        route.params.userChoices[i],
-        route.params.data[i].correct,
-        route.params.data[i].type
-      )
-    ) {
-      totalScore++
+  for (let i = 0; i < route.params.questionData.length; i++) {
+    let userSelected = route.params.userChoices[i];
+    let correct = route.params.questionData[i].correct;
+    let type = route.params.questionData[i].type;
+    let userCorrect = calculateCorrect(userSelected, correct, type);
+
+    if (userCorrect) {
+      totalScore++;
     }
   }
 
   return (
     <View style={styles.container}>
       <FlatList
-        data={route.params.data}
+        data={route.params.questionData}
         renderItem={({ item, index }) => {
           let { choices, prompt, type, correct } = item;
           let userSelected = route.params.userChoices[index];

@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { View, Text, Button } from 'react-native';
 import { ButtonGroup } from 'react-native-elements';
 import { styles } from '../App';
+import { questionData } from '../App';
 
 function Question({ navigation, route }) {
   console.log(route.params)
-  const { questionNumber, userChoices, data } = route.params;
-  let { choices, prompt, type } = data[questionNumber]
+  const { questionNumber, userChoices, questionData } = route.params;
+  let { choices, prompt, type } = questionData[questionNumber]
+  let initialSelection = 0
   let [selectedIndex, setSelectedIndex] = useState(0)
   let [selectedIndexes, setSelectedIndexes] = useState([])
   let nextQuestion = () => {
@@ -18,20 +20,20 @@ function Question({ navigation, route }) {
       userChoices.push(selectedIndexes)
     }
 
-    if (nextQuestion < data.length) {
+    if (nextQuestion < questionData.length) {
       console.log("Navigating to next question")
       console.log({
         questionNumber: nextQuestion,
-        data, userChoices
+        questionData, userChoices
       })
       navigation.navigate("Question", {
         questionNumber: nextQuestion,
-        data,
+        questionData,
         userChoices
       })
     } else {
       navigation.navigate("Summary", {
-        data,
+        questionData,
         userChoices
       })
     }
@@ -42,7 +44,7 @@ function Question({ navigation, route }) {
       <Text>{prompt}</Text>
       {type !== "multiple-answer" ? (
         <ButtonGroup
-          textID="choices"
+          testID="choices"
           buttons={choices}
           vertical
           selectedIndex={selectedIndex}
@@ -71,10 +73,10 @@ function Question({ navigation, route }) {
         />
 
       )}
-      <Button
+        <Button
         testID="next-question"
         onPress={nextQuestion}
-        title="Submit"
+        title="Next"
       ></Button>
     </View>
   );

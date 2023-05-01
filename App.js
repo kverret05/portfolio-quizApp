@@ -7,11 +7,11 @@ import Question from './components/Question';
 import Summary from './components/Summary';
 
 
-const Stack = createStackNavigator();
+export const Stack = createStackNavigator();
 
 // This modified from code in Class Screenshots
 
-const data = [
+export const questionData = [
   {
     type: "multiple-choice",
     prompt: 'How many signs are there in the zodiac?',
@@ -42,7 +42,7 @@ export default function App() {
         <Stack.Screen 
         initialParams={{
           questionNumber: 0,
-          data: data,
+          questionData: questionData,
           userChoices: [],
         }}
           name="Question" 
@@ -53,8 +53,8 @@ export default function App() {
         <Stack.Screen
          name="Summary" 
          initialParams={{
-          questionNumber: data.length - 1,
-          data: data,
+          questionNumber: questionData.length - 1,
+          questionData: questionData,
           userChoices: [1, [0,3], 0],
          }}
          options= {{ headerShown: false}}
