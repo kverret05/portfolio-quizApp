@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, FlatList } from 'react-native';
 import { CheckBox } from 'react-native-elements';
 import { styles } from '../App';
+import RestartQuiz from './RestartQuiz';
 
 function Summary({ route }) {
   let calculateCorrect = (userSelected, correct, type) => {
@@ -13,7 +14,7 @@ function Summary({ route }) {
     }
     return userCorrect;
   };
-  
+
   let calculateCorrectSet = (userSelected, correct, type) => {
     let userCorrect = false;
     if (type === "multiple-answer") {
@@ -45,6 +46,8 @@ function Summary({ route }) {
           let { choices, prompt, type, correct } = item;
           let userSelected = route.params.userChoices[index];
           let userCorrect = calculateCorrect(
+            userSelected, correct, type)
+          let userCorrectSet = calculateCorrectSet(
             userSelected, correct, type)
 
           return (
@@ -80,7 +83,7 @@ function Summary({ route }) {
                         : correct === choiceIndex
                     }
                     textStyle={{
-                      textDecorationLine: incorrect
+                      textDecorationLine: incorrect || !userCorrectSet
                         ? "line-through"
                         : undefined,
                     }}
@@ -93,7 +96,10 @@ function Summary({ route }) {
           );
         }}
       />
-      <Text> Score: {totalScore} </Text>
+      <View>
+        <Text> Score: {totalScore} </Text>
+        <RestartQuiz setQuizState={setQuizState} />
+      </View>
     </View>
   );
 }
