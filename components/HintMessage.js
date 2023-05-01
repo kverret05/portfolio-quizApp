@@ -11,6 +11,8 @@ function HintMessage(props) {
     if (hintCount < maxHints) {
       setShowHint(true);
       setHintCount(hintCount + 1);
+    } else if (hintCount === maxHints) {
+      setButtonDisabled(true);
     }
   };
 
