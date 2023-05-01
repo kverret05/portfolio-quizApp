@@ -5,6 +5,7 @@ import { styles } from '../App';
 import RestartQuiz from './RestartQuiz';
 
 function Summary({ route }) {
+
   let calculateCorrect = (userSelected, correct, type) => {
     let userCorrect = false;
     if (type === "multiple-answer") {
@@ -98,7 +99,6 @@ function Summary({ route }) {
       />
       <View>
         <Text> Score: {totalScore} </Text>
-        <RestartQuiz setQuizState={setQuizState} />
       </View>
     </View>
   );
