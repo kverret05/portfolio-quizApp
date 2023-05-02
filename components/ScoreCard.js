@@ -4,7 +4,7 @@ import { styles } from '../App';
 
 function ScoreCard({ questionData, userChoices }) {
   const [currentScore, setCurrentScore] = useState(0);
-  const [maxPossibleScore, setMaxPossibleScore] = useState(0);
+  const [totalScore, setTotalScore] = useState(0);
 
   useEffect(() => {
     const numQuestions = questionData.length;
@@ -17,16 +17,16 @@ function ScoreCard({ questionData, userChoices }) {
       }
     }).length;
     const newCurrentScore = numCorrect;
-    const newMaxPossibleScore = numQuestions;
+    const totalScore = numQuestions;
 
     setCurrentScore(newCurrentScore);
-    setMaxPossibleScore(newMaxPossibleScore);
+    setTotalScore(totalScore);
   }, [questionData, userChoices]);
 
   return (
     <View style={styles.scoreCard}>
       <Text style={styles.scoreText}>
-        Score: {currentScore} / {maxPossibleScore}
+        Score: {currentScore} / {totalScore}
       </Text>
     </View>
   );
