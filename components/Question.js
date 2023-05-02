@@ -5,6 +5,7 @@ import { styles } from '../App';
 
 import { questionData } from '../App';
 import HintMessage from './HintMessage';
+import ScoreCard from './ScoreCard';
 
 function Question({ navigation, route }) {
   console.log(route.params)
@@ -44,6 +45,7 @@ function Question({ navigation, route }) {
   return (
     <View style={styles.container}>
       <Text>{prompt}</Text>
+      <ScoreCard questionData={questionData} userChoices={userChoices} />
       {showHint ? <HintMessage hint={hint} /> : null}
       {type !== "multiple-answer" ? (
         <ButtonGroup
