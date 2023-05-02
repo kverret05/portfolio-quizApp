@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, Button } from 'react-native';
 import { ButtonGroup } from 'react-native-elements';
 import { styles } from '../App';
+
 import { questionData } from '../App';
 import HintMessage from './HintMessage';
 
