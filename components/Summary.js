@@ -3,8 +3,6 @@ import { View, Text, FlatList } from 'react-native';
 import { CheckBox } from 'react-native-elements';
 import { styles } from '../App';
 
-import RestartQuiz from './RestartQuiz';
-
 function Summary({ route }) {
 
   let calculateCorrect = (userSelected, correct, type) => {
